@@ -1,0 +1,40 @@
+service: micro-serverless
+frameworkVersion: '3'
+
+provider:
+  name: aws
+  runtime: nodejs14.x
+  region: eu-central-1
+
+functions:
+  getmany:
+    handler: videos/getmany.getmany
+    events:
+      - httpApi:
+          method: GET
+          path: /videos
+  getone:
+    handler: videos/getone.getone
+    events:
+      - httpApi:
+          method: GET
+          path: /videos/{id}
+  post:
+    handler: videos/getmany.getmany
+    events:
+      - httpApi:
+          method: POST
+          path: /videos
+  put:
+    handler: videos/put.put
+    events:
+      - httpApi:
+          method: PUT
+          path: /videos/{id}
+  delete:
+    handler: videos/delete.delete
+    events:
+      - httpApi:
+          method: DELETE
+          path: /videos/{id}
+
